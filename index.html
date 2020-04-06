@@ -1,37 +1,119 @@
-## Welcome to GitHub Pages
+<html>
+<style>
+  
+  
+  h7 {
+    font-family:Microsoft JhengHei;
+    color:#7ee0c4;
+    font-size: 80px;
+  }
+  
+  li {
+    font-family:Microsoft JhengHei;
+    font-size: 30px;
+  }
+  
+   <head>
+    <meta charset="utf-8">
+    <title>拼圖</title>
+  </head>
+  
+  <body bgcolor="#ffdab9">
+    <div style="text-align:center;"><h7><b>拼圖真有趣</b></h7></div>
+   
+    
+<td id="topbuttontd">
+<div style="line-height:15px;"><br/></div>
+<table cellpadding="3" cellspacing="0" border="0" align="center">
+<tr><td class="puzzleicontd">
+<img id="pausebutton" class="puzzleiconimg" src="https://www.google.com/url?sa=i&url=http%3A%2F%2F616pic.com%2Ftupian%2Fzanting.html&psig=AOvVaw3afvOxF1p5dqLMdjuRTkWC&ust=1586240257742000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjTtM2T0-gCFQAAAAAdAAAAABAD" alt="暫停遊戲" onmouseover='this.src="https://cdn.jspuzzles.com/artwork/iconpausehover.png"' onmouseout='this.src="https://www.google.com/url?sa=i&url=http%3A%2F%2F616pic.com%2Ftupian%2Fzanting.html&psig=AOvVaw3afvOxF1p5dqLMdjuRTkWC&ust=1586240257742000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjTtM2T0-gCFQAAAAAdAAAAABAD"' />
+</td>
+<td class="puzzleicontd">
+<img id="shufflebutton" class="puzzleiconimg" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fzh.pngtree.com%2Ffreepng%2Fgreen-fault-style-restart-icon_4871402.html&psig=AOvVaw0rttm4dl7lmi7J89TpcB20&ust=1586240316094000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjN2_OT0-gCFQAAAAAdAAAAABAD" alt="重新開始" onmouseover='this.src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fzh.pngtree.com%2Ffreepng%2Fgreen-fault-style-restart-icon_4871402.html&psig=AOvVaw0rttm4dl7lmi7J89TpcB20&ust=1586240316094000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjN2_OT0-gCFQAAAAAdAAAAABAD"' onmouseout='this.src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fzh.pngtree.com%2Ffreepng%2Fgreen-fault-style-restart-icon_4871402.html&psig=AOvVaw0rttm4dl7lmi7J89TpcB20&ust=1586240316094000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMjN2_OT0-gCFQAAAAAdAAAAABAD"'/>
 
-You can use the [editor on GitHub](https://github.com/lin900209/sandy.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+</td>
+</tr></table>
+<div style="line-height:15px;"><br/></div>
+</td>
+<tr><td>
+<table cellspacing="0" cellpadding="0" align="center"><tr>
+<td class="puzzlemenutd">
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.facebook.com%2Fjoy2puzzle%2Fposts%2F&psig=AOvVaw3rgC8n4m--BzJSwNZfprKe&ust=1586240422922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDumZuU0-gCFQAAAAAdAAAAABAD" style="width:21px;height:18px;cursor:pointer;" onclick="viewwin(2458946);" />
+</td>
+<td class="puzzlemenutd2" style="text-align:left">
+<span class="puzzlemenutext" onclick="viewwin(2458946);">更改拼圖切片</span>
+</td>
+</tr>
+<tr><td colspan="2"><div style="line-height:5px;"><br/></div></td></tr>
+<tr>
+<td class="puzzlemenutd">
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.facebook.com%2Fjoy2puzzle%2Fposts%2F&psig=AOvVaw3rgC8n4m--BzJSwNZfprKe&ust=1586240422922000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDumZuU0-gCFQAAAAAdAAAAABAD" style="width:21px;height:18px;cursor:pointer;" onclick="$('#optionswindow').jqmShow();"/>
+</td>
+<td class="puzzlemenutd2" style="text-align:left">
+<span class="puzzlemenutext" onclick="$('#optionswindow').jqmShow();">選擇</span>
+</td>
+</tr></table>
+<div style="line-height:15px;"><br/></div>
+</td>
+</tr><tr>
+<td class="puzzletimetd">
+已用時間<br/><div id="timerdisp" class="optdigits" style="width:140px;" dir="ltr">00:00</div>
+</td>
+</tr><tr>
+<td class="puzzletimetd" id="avgtimetd">
+平均時間<br/>
+<div class="optdigits" dir="ltr">
+12:35</div>
+</td>
+</tr><tr>
+<td class="puzzletimetd" id="besttimetd">
+最佳記錄<br/><div class="optdigits" dir="ltr">
+8:39</div>
+</td>
+</tr><tr><td><div style="line-height:15px;"><br/></div></td></tr><tr>
+<td id="hinttd">
+<img id="hintpic" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fm.juksy.com%2Farchives%2F41950&psig=AOvVaw2WNDAM3QqgXzqI_I8uHRcr&ust=1586239150714000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjgo76P0-gCFQAAAAAdAAAAABAD" width="800px" height="600px" style="border:1px solid white;cursor:pointer;" onclick='display_hint("https://www.google.com/url?sa=i&url=https%3A%2F%2Fm.juksy.com%2Farchives%2F41950&psig=AOvVaw2WNDAM3QqgXzqI_I8uHRcr&ust=1586239150714000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjgo76P0-gCFQAAAAAdAAAAABAD","90");'/></td>
+</tr><tr>
+<td>
+<div style="line-height:15px;"><br/></div>
+<table cellspacing="5" cellpadding="0" align="center">
+<tr>
+<td class="puzzlechangecoltd" style="background-color:#EEEEEE;" onclick="bgcolor='#EEEEEE'; document.getElementById('puzzleplace').style.backgroundColor = bgcolor;">&nbsp;</td>
+<td class="puzzlechangecoltd" style="background-color:white;" onclick="bgcolor='white'; document.getElementById('puzzleplace').style.backgroundColor = bgcolor;">&nbsp;</td>
+<td class="puzzlechangecoltd" style="background-color:blue" onclick="bgcolor='blue';document.getElementById('puzzleplace').style.backgroundColor = bgcolor;">&nbsp;</td>
+<td class="puzzlechangecoltd" style="background-color:white;" onclick="bgcolor='white';document.getElementById('puzzleplace').style.backgroundColor = bgcolor;">&nbsp;</td>
+</tr><tr>
+<td class="puzzlechangecoltd" style="background-color:#f5d0f4;" onclick="bgcolor='#f5d0f4';document.getElementById('puzzleplace').style.backgroundColor = bgcolor;">&nbsp;</td>
+<td class="puzzlechangecoltd" style="background-color:#BC4B25;" onclick="bgcolor='#BC4B25'; document.getElementById('puzzleplace').style.backgroundColor = bgcolor;">&nbsp;</td>
+<td class="puzzlechangecoltd" style="background-color:lightgreen;" onclick="bgcolor='lightgreen'; document.getElementById('puzzleplace').style.backgroundColor = bgcolor;">&nbsp;</td>
+<td class="puzzlechangecoltd" style="background-color:#343434;" onclick="bgcolor='#343434';document.getElementById('puzzleplace').style.backgroundColor = bgcolor;">&nbsp;</td>
+</tr>
+</table>
+<div style="line-height:8px;"><br/></div>
+<div id="rearrangebutton"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.taodabai.com%2Fhow%2F660490454.html&psig=AOvVaw28hriNyiulJbLlmxD9eH8T&ust=1586240591472000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMCJyuuU0-gCFQAAAAAdAAAAABAD" style="cursor:pointer;" onmouseover='this.src="https://cdn.jspuzzles.com/artwork/iconarrangehover.png"' onmouseout='this.src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.taodabai.com%2Fhow%2F660490454.html&psig=AOvVaw28hriNyiulJbLlmxD9eH8T&ust=1586240591472000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMCJyuuU0-gCFQAAAAAdAAAAABAD"' onclick="rearrangearc();"/> </div>
+</td>
+</tr>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<td id="jigadtd" name="jigadtd" style="padding-top:1px;padding-left:1px;padding-right:1px;vertical-align:top;width:120px;text-align:center;background-color:#848484;">
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/lin900209/sandy.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<tr>
+<td colspan="3">
+<table cellspacing="10" cellpadding="0" align="center" style="width:730px;table-layout:fixed;">
+<colgroup><col style="width:392px;"/><col style="width:338px;"/></colgroup>
+<tr>
+<td class="puzzleboxtd" dir="ltr">
+<div style="line-height:10px;"><br/></div>
+<span class="puzh1">拼圖名稱：</span><span style="color:#4F4F4F;">Red flower with beauty texture</span>
+<br/>
+<div style="line-height:12px;">&nbsp;</div>
+<div id="votediv" dir="ltr">
+<table cellspacing="0" cellpadding="0" >
+<tr><td valign="top">
+<ul class="rating ratingltr star45">
+<li class="one"><a href="#" title="1 Star" onclick="updatevote(2458946,1)">1</a></li>
+<li class="two"><a href="#" title="2 Stars" onclick="updatevote(2458946,2)">2</a></li>
+<li class="three"><a href="#" title="3 Stars" onclick="updatevote(2458946,3)">3</a></li>
+<li class="four"><a href="#" title="4 Stars" onclick="updatevote(2458946,4)">4</a></li>
+<li class="five"><a href="#" title="5 Stars" onclick="updatevote(2458946,5)">5</a></li>
+<img id="savebutton" class="puzzleiconimg" src="https://cdn.jspuzzles.com/artwork/iconsave.png" alt="儲存遊戲" onmouseover='this.src="https://cdn.jspuzzles.com/artwork/iconsavehover.png"' onmouseout='this.src="https://cdn.jspuzzles.com/artwork/iconsave.png"'/>
