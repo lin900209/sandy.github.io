@@ -6,6 +6,295 @@
       <title>拼圖</title>
       <body bgcolor="#ffdab9">
       <div style="text-align:center;"><h7><b>拼圖真有趣</b></h7></div>
+// detect canvas support
+
+var canvasSupported = !!document.createElement("canvas").getContext;
+if (!canvasSupported)
+{
+	// redirect
+	var curr_page = window.location.href;
+	// console.log("curr_page="+curr_page);
+	curr_page=curr_page+"&canvas=0";
+	window.location = curr_page;
+}
+
+var canvasSupported = !!window.HTMLCanvasElement;
+if (!canvasSupported)
+{
+	// redirect
+	var curr_page = window.location.href;
+	curr_page=curr_page+"&canvas=0";
+	window.location = curr_page;
+}
+
+
+var clickSound;
+soundManager.setup({
+
+url : 'sound3/swf/',
+useHighPerformance : true,
+useFastPolling : true,
+debugMode : false,
+preferFlash : true,
+waitForWindowLoad : true,
+ontimeout:function(){
+togglesoundoff();
+},
+onready:function(){
+	if (!soundManager._disabled)
+	{
+		clickSound = soundManager.createSound({id: 'aSound', url: 'jspuzzles-click.mp3', autoPlay:false, autoLoad:true});
+	} else{togglesoundoff();}
+}
+});
+</script>
+<script type="text/javascript" src="puzzletools-2-92.js"></script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-2923711-1', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#finishhi').jqm({modal:true});
+  $('#loadpuzzle').jqm({ajax:'loadgame.php?lang=cn&'+Math.random()});
+  $('#savepuzzle').jqm();
+  $('#resumepuzzle').jqm({modal:true});
+  $('#homepageconfirm').jqm();
+  $('#shuffleconfirm').jqm();
+  $('#optionswindow').jqm();
+  $('#puzzledialog').jqm();
+});
+
+var em = "繼續";
+var ms = new Array();
+ms[0] = "05";
+ms[1] = "08";
+ms[2] = "03";
+ms[3] = "01";
+ms[4] = "01";
+ms[5] = "00";
+ms[6] = "01";
+var soundonoff = true;
+var bgcolor = "#EEEEEE";
+var selectmode = 0;
+function preloadImgs() {
+ var d=document,a=arguments; if(!d.FP_imgs) d.FP_imgs=new Array();
+ for(var i=0; i<a.length; i++) { d.FP_imgs[i]=new Image; d.FP_imgs[i].src=a[i]; }
+}
+
+preloadImgs('https://cdn.jspuzzles.com/black.gif','https://cdn.jspuzzles.com/blue.gif');
+var lengthOfPreloadBar = 400;
+var heightOfPreloadBar = 20;
+var yourImages = new Array("https://cdn.jspuzzles.com/black.gif","https://cdn.jspuzzles.com/blue.gif",
+"https://cdn.jspuzzles.com/artwork/iconarrange.png","https://cdn.jspuzzles.com/artwork/iconarrangehover.png","https://cdn.jspuzzles.com/artwork/puzzlelogo.png","https://cdn.jspuzzles.com/artwork/iconpause.png","https://cdn.jspuzzles.com/artwork/iconpausehover.png","https://cdn.jspuzzles.com/artwork/iconrefresh.png","https://cdn.jspuzzles.com/artwork/iconrefreshhover.png",
+  "https://cdn.jspuzzles.com/artwork/iconsoundon.png","https://cdn.jspuzzles.com/artwork/iconsoundonhover.png","https://cdn.jspuzzles.com/artwork/iconsoundoff.png","https://cdn.jspuzzles.com/artwork/iconsoundoffhover.png","https://cdn.jspuzzles.com/artwork/iconsave.png","https://cdn.jspuzzles.com/artwork/iconsavehover.png",
+  "https://cdn.jspuzzles.com/artwork/gamemenupiece.jpg","https://cdn.jspuzzles.com/artwork/puzzlepiece.png","https://cdn.jspuzzles.com/pic3/2458946.jpg")
+if (document.images) {
+	var dots = new Array()
+	dots[0] = new Image(1,1)
+	dots[0].src = "https://cdn.jspuzzles.com/black.gif"
+	dots[1] = new Image(1,1)
+	dots[1].src = "https://cdn.jspuzzles.com/blue.gif"
+	var preImages = new Array(),coverage = Math.floor(lengthOfPreloadBar/yourImages.length)
+	var currCount = 0
+	var loaded = new Array(),i,covered,timerID
+	var leftOverWidth = lengthOfPreloadBar%coverage
+}
+</script>
+
+<script type="text/javascript">
+var competemode = true;
+var selectedsize = 5;
+var selectedcut =  8;
+var pagewidth;
+var pageheight;
+var refreshhi
+if (competemode == true)
+{
+	refreshhi = true;
+}
+else
+{
+	refreshhi = false
+}
+function generatelink(puzzlenum)
+{
+	var routeto =    'https://www.jspuzzles.com/puzzle.php?puzzle='+puzzlenum+'&amp;lang=cn&amp;size='+selectedsize+'&amp;cut='+selectedcut+'&amp;scale='+selectedscale;
+	var routeto2 =   'https://www.jspuzzles.com/puzzle.php?puzzle='+puzzlenum+'&lang=cn&size='+selectedsize+'&cut='+selectedcut+'&scale='+selectedscale;
+	document.getElementById('playlink').innerHTML = '<a class="winplaylink" href="'+routeto+'">玩遊戲</a>';
+	document.getElementById('playlink').onclick  = function(){window.location.href = routeto2;}
+	if (puzzlenum >= 2454318) {pic_dir = "pic3";} else {pic_dir = "userpic3";}
+	if (pageheight < 510)
+	{
+		document.getElementById("puzzledialog").style.top = "2px";
+		document.getElementById("dialogimg").innerHTML = '<a href="'+routeto+'"><img src="https://cdn.jspuzzles.com/'+pic_dir+'/'+puzzlenum+'.jpg" style="width:212px;height:143px;border:2px solid #DCDADB;" alt=""/></a>';
+		if ((refreshhi == true) && (competemode == true))
+		{
+			document.getElementById("hiscoretab").innerHTML='<div style="width:400px;text-align:center;"><img src="https://cdn.jspuzzles.com/artwork/ajaxloading.gif" alt="" /></div>';
+			gethiscore("cn",puzzlenum,selectedcut, selectedsize,"small");
+		}
+	}
+	else
+	{
+		if (pageheight < 625) {document.getElementById("puzzledialog").style.top = "10px";}
+		document.getElementById("dialogimg").innerHTML = '<a href="'+routeto+'"><img src="https://cdn.jspuzzles.com/'+pic_dir+'/'+puzzlenum+'.jpg" style="width:390px;height:262px;border:2px solid #DCDADB;" alt=""/></a>';
+        if ((refreshhi == true) && (competemode == true))
+    {
+          document.getElementById("hiscoretab").innerHTML='<div style="width:400px;text-align:center;"><img src="https://cdn.jspuzzles.com/artwork/ajaxloading.gif" alt="" /></div>';
+gethiscore("cn",puzzlenum,selectedcut, selectedsize,"normal");
+}
+}
+}
+
+var currentwinpuzzlenum;
+function viewwin(puzzlenum)
+{
+currentwinpuzzlenum = puzzlenum;
+var sizelinks = '<table cellspacing="8" cellpadding="0" align="center">';
+    sizelinks = sizelinks+ '<tr><td id="size3" class="winnotsel" onclick="selectsize(3,'+puzzlenum+');">3×3</td>';
+    sizelinks = sizelinks+ '<td id="size4" class="winnotsel" onclick="selectsize(4,'+puzzlenum+');">4×4</td>';
+    sizelinks = sizelinks+ '<td id="size5" class="winnotsel" onclick="selectsize(5,'+puzzlenum+');">5×5</td>';
+  sizelinks = sizelinks+ '<td id="size6" class="winnotsel" onclick="selectsize(6,'+puzzlenum+');">6×6</td>';
+  sizelinks = sizelinks+ '<td id="size7" class="winnotsel" onclick="selectsize(7,'+puzzlenum+');">7×7</td></tr><tr>';
+  sizelinks = sizelinks+ '<td id="size8" class="winnotsel" onclick="selectsize(8,'+puzzlenum+');">8×8</td>';
+  sizelinks = sizelinks+ '<td id="size9" class="winnotsel" onclick="selectsize(9,'+puzzlenum+');">9×9</td>';
+	sizelinks = sizelinks+ '<td id="size10" class="winnotsel" onclick="selectsize(10,'+puzzlenum+');">10×10</td>';
+	sizelinks = sizelinks+ '<td id="size12" class="winnotsel" onclick="selectsize(12,'+puzzlenum+');">12×12</td>';
+	sizelinks = sizelinks+ '<td id="size15" class="winnotsel" onclick="selectsize(15,'+puzzlenum+');">15×15</td></tr></table>';
+	var cutlinks = '<table cellspacing="8" cellpadding="0" align="center">';
+	cutlinks = cutlinks+ '<tr><td><img id="cut8" src="https://cdn.jspuzzles.com/artwork/c8.jpg" class="wincutnotsel" onclick="selectcut(8,'+puzzlenum+');" alt="" /></td>';
+	cutlinks = cutlinks+ '<td><img id="cut7" src="https://cdn.jspuzzles.com/artwork/c7.jpg" class="wincutnotsel" onclick="selectcut(7,'+puzzlenum+');" alt="" /></td>';
+	cutlinks = cutlinks+ '<td><img id="cut5" src="https://cdn.jspuzzles.com/artwork/c5.jpg" class="wincutnotsel" onclick="selectcut(5,'+puzzlenum+');" alt="" /></td>';
+	cutlinks = cutlinks+ '<td><img id="cut4" src="https://cdn.jspuzzles.com/artwork/c4.jpg" class="wincutnotsel" onclick="selectcut(4,'+puzzlenum+');" alt="" /></td>';
+	cutlinks = cutlinks+ '<td><img id="cut2" src="https://cdn.jspuzzles.com/artwork/c2.jpg" class="wincutnotsel" onclick="selectcut(2,'+puzzlenum+');" alt="" /></td>';
+	cutlinks = cutlinks+ '<td><img id="cut1" src="https://cdn.jspuzzles.com/artwork/c1.jpg" class="wincutnotsel" onclick="selectcut(1,'+puzzlenum+');" alt="" /></td></tr></table>';
+	var scalelinks = '<table cellspacing="0" cellpadding="0" align="center">';
+    scalelinks = scalelinks+ '<tr><td id="scale3" class="winscalenotsel" onclick="selectscale(3,'+puzzlenum+');">&nbsp;&nbsp;小片拼圖&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;</td>';
+    scalelinks = scalelinks+ '<td id="scale6" class="winscalenotsel" onclick="selectscale(6,'+puzzlenum+');">&nbsp;&nbsp;大片拼圖&nbsp;&nbsp;</td></tr></table>';
+	document.getElementById("cutlinks").innerHTML = cutlinks;
+	document.getElementById("sizelinks").innerHTML = sizelinks;
+	document.getElementById('cut'+selectedcut).style.border = "3px solid #E62A38";
+	document.getElementById('size'+selectedsize).className ='winsel';
+	document.getElementById("scalelinks").innerHTML = scalelinks;
+	document.getElementById('scale'+selectedscale).className ='winscalesel';
+	generatelink(puzzlenum);
+	$('#puzzledialog').jqmShow();
+	return true;
+}
+</script>
+
+
+	<script type="text/javascript">
+	    var adsStart = (new Date()).getTime();
+	    function detectWidth() {
+	        return window.screen.width || window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+	    }
+	    var TIMEOUT = 2000;
+	    var googletag = googletag || {};
+	    googletag.cmd = googletag.cmd || [];
+	    var pbjs = pbjs || {};
+	    pbjs.que = pbjs.que || [];
+	    var adUnits = adUnits || [];
+	    function initAdServer() {
+	        if (pbjs.initAdserverSet) return;
+	        (function() {
+	            var gads = document.createElement('script');
+	            gads.async = true;
+	            gads.type = 'text/javascript';
+	            var useSSL = 'https:' == document.location.protocol;
+	            gads.src = (useSSL ? 'https:' : 'http:') +
+	                '//www.googletagservices.com/tag/js/gpt.js';
+	            var node = document.getElementsByTagName('script')[0];
+	            node.parentNode.insertBefore(gads, node);
+	        })();
+	        pbjs.initAdserverSet = true;
+	    };
+	    pbjs.timeout = setTimeout(initAdServer, TIMEOUT);
+	    pbjs.timeStart = adsStart;
+	    var dfpNetwork = '21625667795';
+	    /* Start: defining adunits*/
+			adUnits.push({
+	        network: dfpNetwork,
+	        adunit: 'JSP_Puzzle_D120x600_1',
+	        size: (detectWidth() >= 768) ? [[120, 600]] : [[120, 600]],
+	        code: 'div-gpt-ad-1513540995079-0'
+	    });
+	    adUnits.push({
+	        network: dfpNetwork,
+	        adunit: 'JSP_Puzzle_D300x250_1',
+	        size: (detectWidth() >= 768) ? [[300, 250]] : [[300, 250],[320,100],[320,50]],
+	        code: 'div-gpt-ad-1505817075199-0'
+	    });
+
+
+	    /* End: defining adunits*/
+	    googletag.cmd.push(function() {
+	      if(adUnits){
+	        for (var i = 0, len = adUnits.length; i < len; i++) {
+	          googletag.defineSlot('/'+adUnits[i].network+'/'+adUnits[i].adunit, adUnits[i].size, adUnits[i].code).addService(googletag.pubads());
+	        }
+	      }
+	    });
+	    googletag.cmd.push(function() {
+	        pbjs.que.push(function() {pbjs.setTargetingForGPTAsync();});
+	        googletag.pubads().collapseEmptyDivs();
+	        googletag.pubads().enableSingleRequest();
+	        googletag.enableServices();
+	    });
+	</script>
+	<script type="text/javascript" async="true" src="//cdn.adapex.io/hb/aaw.jspuzzles.js"></script>
+
+
+</head>
+<body style="background:#ffffff;">
+<script src="puzzlejsv6/js/bundle.min.js?v=1518188213998"></script>
+
+
+<script type="text/javascript">
+istouch = isTouchDevice();
+</script>
+<script type="text/javascript">
+ function logdebug(msg) { if (false) console.log(msg) }logdebug("viewwinbodyinit");pagewidth = pageWidth();
+pageheight = pageHeight();
+logdebug("pageheight="+pageheight);logdebug("pagewidth="+pagewidth);logdebug("GLOBALS[whichpage]=puzzle");logdebug("GLOBALS[settings_scale]=3");var selectedscale = 3;
+logdebug("selectedscale="+selectedscale);</script>
+<table cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td id="puzzleplace" valign="top" style="border:1px solid #848484;text-align:center;background-color:#EEEEEE;">
+<div align="center" class="puzzleloading" id="puzzlestartup">
+<br/>
+<div id="loadmessege">
+<br/><br/><b>正在讀取您的拼圖，請稍候</b>
+<div id="progress"> </div>
+<br/>
+</div>
+</div><br/><br/>
+<span id="hintdisp">&nbsp;</span></td>
+
+<td style="width:140px;vertical-align:top;background-color:#848484;text-align:center;">
+<table cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+<colgroup><col style="width:140px;" width="140px"/></colgroup>
+<tr>
+<td style="border-top:1px solid #848484;border-right:1px solid #848484;">
+<div id="logodiv" style="padding-top:3px;background-color:#F7F5F6;">
+ alt="一起來玩拼圖遊戲!" onclick="$('#homepageconfirm').jqmShow();"/>
+</div>
+<div id="logobottomlinks" align="center" style="background-color:#F7F5F6;height:27px;">
+<span onclick="$('#homepageconfirm').jqmShow();" style="color:#848484;text-decoration:underline;cursor:pointer;">回到首頁</span>
+</div>
+</td>
+</tr>
+<tr>
    
 
 <td id="topbuttontd">
@@ -78,7 +367,7 @@
 <tr>
 <td class="puzzleboxtd" dir="ltr">
 <div style="line-height:10px;"><br/></div>
-<span class="puzh1">拼圖名稱：</span><span style="color:#4F4F4F;">Red flower with beauty texture</span>
+<span class="puzh1">拼圖名稱：</span><span style="color:#4F4F4F;">迪士尼</span>
 <br/>
 <div style="line-height:12px;">&nbsp;</div>
 <div id="votediv" dir="ltr">
